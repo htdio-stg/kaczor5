@@ -1,1 +1,1 @@
-ja pierdole dziala
+lubie pierogi z malinami
