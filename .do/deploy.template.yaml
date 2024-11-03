@@ -12,9 +12,9 @@ spec:
       instance_size_slug: basic-xxs
       run_command: ""
       envs:
-        - key: "0"
-          value: MYSQL_ROOT_PASSWORD=
-        - key: "1"
-          value: MARIADB_AUTO_UPGRADE=1
-        - key: "2"
-          value: MARIADB_DISABLE_UPGRADE_BACKUP=1
+        - key: MYSQL_ROOT_PASSWORD
+          value: ""
+        - key: MARIADB_AUTO_UPGRADE
+          value: "1"
+        - key: MARIADB_DISABLE_UPGRADE_BACKUP
+          value: "1"
