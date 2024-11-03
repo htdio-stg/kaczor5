@@ -1,0 +1,25 @@
+name: deploystack
+region: nyc
+services:
+  - name: db
+    environment_slug: docker
+    http_port: 6379
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    run_command: ""
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MARIADB_AUTO_UPGRADE: "1"
+      MARIADB_DISABLE_UPGRADE_BACKUP: "1"
+  - name: web
+    environment_slug: docker
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    run_command: |
+      /bin/bash -c "whoami && ls / ls -al /var/"
+    environment:
+      MARIADB_ROOT_PASSWORD: ganzgeheim
+      MARIADB_PASSWORD: geheim
+      MARIADB_USER: testuser
+      MARIADB_DATABASE: testdb
