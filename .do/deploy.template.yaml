@@ -18,6 +18,8 @@ spec:
           value: "1"
         - key: MARIADB_DISABLE_UPGRADE_BACKUP
           value: "1"
+      routes:
+        - path: /
     - name: web
       image:
         registry_type: DOCKER_HUB
@@ -37,3 +39,5 @@ spec:
           value: testuser
         - key: MARIADB_DATABASE
           value: testdb
+      routes:
+        - path: /web
