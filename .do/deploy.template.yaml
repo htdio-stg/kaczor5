@@ -18,22 +18,3 @@ spec:
           value: "1"
         - key: MARIADB_DISABLE_UPGRADE_BACKUP
           value: "1"
-    - name: web
-      image:
-        registry_type: DOCKER_HUB
-        repository: nginx
-        tag: alpine
-      http_port: 8080
-      instance_count: 1
-      instance_size_slug: basic-xxs
-      run_command: |
-        /bin/bash -c "whoami && ls / ls -al /var/"
-      envs:
-        - key: MARIADB_ROOT_PASSWORD
-          value: ganzgeheim
-        - key: MARIADB_PASSWORD
-          value: geheim
-        - key: MARIADB_USER
-          value: testuser
-        - key: MARIADB_DATABASE
-          value: testdb
