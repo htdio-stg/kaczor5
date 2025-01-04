@@ -24,6 +24,8 @@ spec:
       instance_count: 1
       instance_size_slug: basic-xxs
       run_command: ""
+      routes:
+        - path: /db      
       envs: 
         - key: MYSQL_ROOT_PASSWORD
           value: ChangeThisToASecurePassword
