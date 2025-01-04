@@ -1,12 +1,18 @@
 spec:
   name: deploystack
   region: nyc
-  databases:
+  workers:
     - name: db
-      engine: MYSQL
-      version: "8"
-      production: true
-      cluster_name: db
+      image:
+        registry_type: DOCKER_HUB
+        registry: library
+        repository: mariadb
+        tag: 11.2
+      http_port: 80
+      instance_count: 1
+      instance_size_slug: basic-xxs
+      run_command: ""
+      envs: []
   services:
     - name: app
       image:
