@@ -27,8 +27,6 @@ spec:
       health_check:
         port: 3306
       internal_ports: [3306]
-      routes:
-        - path: /db      
       envs: 
         - key: MYSQL_ROOT_PASSWORD
           value: ChangeThisToASecurePassword
