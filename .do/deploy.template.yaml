@@ -8,7 +8,6 @@ spec:
         registry: library
         repository: mariadb
         tag: 11.2
-      http_port: 80
       instance_count: 1
       instance_size_slug: basic-xxs
       run_command: ""
