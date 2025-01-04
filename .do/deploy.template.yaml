@@ -24,6 +24,8 @@ spec:
       instance_count: 1
       instance_size_slug: basic-xxs
       run_command: ""
+      health_check:
+        port: 3306
       routes:
         - path: /db      
       envs: 
