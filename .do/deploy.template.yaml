@@ -24,6 +24,8 @@ spec:
         port: 3306
       internal_ports:
         - 3306
+      routes:
+        - path: /db      
     - name: app
       image:
         registry_type: DOCKER_HUB
