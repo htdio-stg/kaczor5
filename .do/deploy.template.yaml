@@ -33,6 +33,7 @@ spec:
           value: ChangeThisToASecurePassword!
         - key: MYSQL_DATABASE
           value: linkace
+      private: true
       health_check:
         port: 3306          
       internal_ports:
