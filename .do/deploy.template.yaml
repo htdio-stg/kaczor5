@@ -1,13 +1,6 @@
 spec:
   name: deploystack
   region: nyc
-  ingress:
-    rules:
-      - component:
-          name: app
-        match:
-          path:
-            prefix: / 
   services:
     - name: app
       image:
