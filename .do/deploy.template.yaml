@@ -2,6 +2,17 @@ spec:
   name: deploystack
   region: nyc
   services:
+    - name: app
+      image:
+        registry_type: DOCKER_HUB
+        registry: linkace
+        repository: linkace
+        tag: simple
+      instance_count: 1
+      instance_size_slug: basic-xxs
+      run_command: ""
+      envs: []
+      http_port: 80  
     - name: db
       image:
         registry_type: DOCKER_HUB
@@ -24,14 +35,3 @@ spec:
         port: 3306
       internal_ports:
         - 3306
-    - name: app
-      image:
-        registry_type: DOCKER_HUB
-        registry: linkace
-        repository: linkace
-        tag: simple
-      instance_count: 1
-      instance_size_slug: basic-xxs
-      run_command: ""
-      envs: []
-      http_port: 80
