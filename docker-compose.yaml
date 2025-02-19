@@ -1,33 +1,18 @@
 version: "3"
 
 services:
-
-  # --- MariaDB
-  db:
-    image: docker.io/library/mariadb:11.2
-    restart: unless-stopped
+  dailytxt:
+    image: phitux/dailytxt:latest
+    container_name: dailytxt
+    restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
-      - MYSQL_USER=${DB_USERNAME}
-      - MYSQL_PASSWORD=${DB_PASSWORD}
-      - MYSQL_DATABASE=${DB_DATABASE}
-    volumes:
-      - db:/var/lib/mysql
-
-  # --- LinkAce Image with PHP and nginx
-  app:
-    image: docker.io/linkace/linkace:simple
-    restart: unless-stopped
-    depends_on:
-      - db
+      - PORT=8765
+      - SECRET_KEY="GdLCAOaP1Km4Mwc2cViNUc4BpnNbZJyBmkCeFw2Uyp4="
+      - ALLOW_REGISTRATION=True
+      - DATA_INDENT=2
+      - JWT_EXP_DAYS=60
+      - ENABLE_UPDATE_CHECK=True
     ports:
-      - "0.0.0.0:80:80"
-      #- "0.0.0.0:443:443"
+      - "127.0.0.1:<host_port>:8765"
     volumes:
-      - ./backups:/app/storage/app/backups    
-      - linkace_logs:/app/storage/logs
-
-volumes:
-  linkace_logs:
-  db:
-    driver: local
+      - "/data:/app/data/"
