@@ -2,37 +2,20 @@ spec:
   name: deploystack
   region: nyc
   services:
-  
-    - name: db
+    - name: default
       image:
         registry_type: DOCKER_HUB
-        registry: library
-        repository: postgres
-        tag: "17"
-      instance_count: 1
-      instance_size_slug: basic-xxs
-      envs:
-        - key: POSTGRES_USER
-          value: linkace
-        - key: POSTGRES_PASSWORD
-          value: ChangeThisToASecurePassword!
-        - key: POSTGRES_DB
-          value: linkace
-      health_check:
-        port: 5432
-      internal_ports:
-        - 5432
-        
-    - name: app
-      image:
-        registry_type: DOCKER_HUB
-        registry: linkace
-        repository: linkace
+        registry: baserow
+        repository: baserow
         tag: latest
       instance_count: 1
       instance_size_slug: basic-xxs
       run_command: ""
-      envs: []
+      envs:
+        - key: BASEROW_PUBLIC_URL
+          value: "http://localhost"
+        - key: DISABLE_VOLUME_CHECK
+          value: "true"    # Changed from 'yes' to "true"
       http_port: 80
       routes:
         - path: /
