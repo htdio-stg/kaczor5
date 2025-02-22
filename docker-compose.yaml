@@ -1,14 +1,13 @@
-version: '3'
+version: "3"
 services:
-  passky-server:
-    container_name: passky-server
-    image: 'rabbitcompany/passky-server:latest'
-    restart: unless-stopped
-    environment:
-      - ADMIN_USERNAME="admin"
-      - ADMIN_PASSWORD="admin_password"
-      - DATABASE_ENGINE="sqlite"
+  fathom:
+    image: usefathom/fathom:latest
     ports:
-      - 8080:80
-    volumes:
-      - ./databases:/var/www/html/databases
+      - "8080:8080"
+    environment:
+      - "FATHOM_SERVER_ADDR=:8080"
+      - "FATHOM_GZIP=true"
+      - "FATHOM_DEBUG=false"
+      - "FATHOM_DATABASE_DRIVER=sqlite3"
+      - "FATHOM_SECRET=TWEn6GXQDx45PZfmJWvyGpXf5M8b94bszgw8JcJWEd6WxgrnUkLatS34GwjPTvZb"
+    restart: always
