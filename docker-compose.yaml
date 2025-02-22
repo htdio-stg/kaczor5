@@ -1,18 +1,14 @@
-version: "3"
-
+version: '3'
 services:
-  dailytxt:
-    image: phitux/dailytxt:latest
-    container_name: dailytxt
-    restart: always
+  passky-server:
+    container_name: passky-server
+    image: 'rabbitcompany/passky-server:latest'
+    restart: unless-stopped
     environment:
-      - PORT=8765
-      - SECRET_KEY="GdLCAOaP1Km4Mwc2cViNUc4BpnNbZJyBmkCeFw2Uyp4="
-      - ALLOW_REGISTRATION=True
-      - DATA_INDENT=2
-      - JWT_EXP_DAYS=60
-      - ENABLE_UPDATE_CHECK=True
+      - ADMIN_USERNAME=""
+      - ADMIN_PASSWORD=""
+      - DATABASE_ENGINE
     ports:
-      - "127.0.0.1:<host_port>:8765"
+      - 8080:80
     volumes:
-      - "/data:/app/data/"
+      - ./databases:/var/www/html/databases
