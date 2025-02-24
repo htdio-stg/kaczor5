@@ -12,3 +12,5 @@ spec:
       instance_size_slug: basic-xxs      
       internal_ports:
         - 3306
+      health_check:
+        port: 3306
