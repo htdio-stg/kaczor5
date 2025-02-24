@@ -9,8 +9,6 @@ spec:
         repository: mariadb
         tag: "11.2"
       instance_count: 1
-      instance_size_slug: basic-xxs
-      health_check:
-        port: 3306          
+      instance_size_slug: basic-xxs      
       internal_ports:
         - 3306
