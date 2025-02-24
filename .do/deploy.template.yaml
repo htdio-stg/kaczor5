@@ -2,20 +2,15 @@ spec:
   name: deploystack
   region: nyc
   services:
-    - name: default
+    - name: db
       image:
         registry_type: DOCKER_HUB
-        registry: baserow
-        repository: baserow
-        tag: latest
+        registry: library
+        repository: mariadb
+        tag: "11.2"
       instance_count: 1
       instance_size_slug: basic-xxs
-      run_command: ""
-      envs:
-        - key: BASEROW_PUBLIC_URL
-          value: "http://localhost"
-        - key: DISABLE_VOLUME_CHECK
-          value: "true"    # Changed from 'yes' to "true"
-      http_port: 80
-      routes:
-        - path: /
+      health_check:
+        port: 3306          
+      internal_ports:
+        - 3306
