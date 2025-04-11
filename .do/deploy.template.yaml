@@ -18,3 +18,4 @@ spec:
   databases:
     - name: db-redis-db
       engine: REDIS
+      production: true
