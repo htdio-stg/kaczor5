@@ -19,3 +19,4 @@ spec:
     - name: db-redis-db
       engine: REDIS
       production: true
+      cluster_name: db-redis-db-cluster
