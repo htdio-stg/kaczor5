@@ -29,7 +29,7 @@ spec:
     - name: redis-dev
       engine: REDIS
       version: "7"
-      production: false
+      production: true
       cluster_name: your-app-redis-dev
       size: db-s-1vcpu-1gb
       num_nodes: 1
