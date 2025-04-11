@@ -16,5 +16,5 @@ spec:
       routes:
         - path: /
   databases:
-    - name: db-db
-      engine: PG
+    - name: db-redis-db
+      engine: REDIS
