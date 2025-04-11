@@ -2,10 +2,11 @@ name: your-app-name
 region: nyc
 services:
   - name: web-service
-    github:
-      repo: username/repository
-      branch: main
-      deploy_on_push: true
+    image:
+      registry_type: DOCKER_HUB
+      registry: yureien
+      repository: yabin
+      tag: latest
     envs:
       - key: REDIS_CONNECTION
         value: dev
