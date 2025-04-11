@@ -2,15 +2,19 @@ spec:
   name: deploystack
   region: nyc
   services:
-    - name: db
+    - name: yabin
       image:
         registry_type: DOCKER_HUB
-        registry: library
-        repository: mariadb
-        tag: "11.2"
+        registry: yureien
+        repository: yabin
+        tag: latest
       instance_count: 1
-      instance_size_slug: basic-xxs      
-      internal_ports:
-        - 3306
-      health_check:
-        port: 3306
+      instance_size_slug: basic-xxs
+      run_command: ""
+      envs: []
+      http_port: 3000
+      routes:
+        - path: /
+  databases:
+    - name: db-db
+      engine: PG
