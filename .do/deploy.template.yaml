@@ -1,22 +1,9 @@
-spec:
-  name: deploystack
-  region: nyc
-  services:
-    - name: yabin
-      image:
-        registry_type: DOCKER_HUB
-        registry: yureien
-        repository: yabin
-        tag: latest
-      instance_count: 1
-      instance_size_slug: basic-xxs
-      run_command: ""
-      envs: []
-      http_port: 3000
-      routes:
-        - path: /
-  databases:
-    - name: db-redis-db
-      engine: REDIS
-      production: true
-      cluster_name: db-redis-db-cluster
+name: your-app
+region: nyc
+    
+databases:
+  - name: redis-db
+    engine: REDIS
+    version: "7"
+    production: true
+    cluster_name: your-app-redis
