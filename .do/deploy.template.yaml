@@ -31,5 +31,5 @@ spec:
       version: "7"
       production: false
       cluster_name: your-app-redis-dev
-      db_size: db-s-1vcpu-1gb
+      size: db-s-1vcpu-1gb
       num_nodes: 1
